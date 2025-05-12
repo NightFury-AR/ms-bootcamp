@@ -1,0 +1,92 @@
+syntax = "proto3";
+
+package org.nightfury.proto.v1; // organize proto file
+
+option java_multiple_files = true; // ?
+option java_package = "com.nightfury.proto.v1";
+option go_package = "github.com/example/fullproto/gen;fullproto";
+
+
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+// import "google/api/annotations.proto";
+import "google/protobuf/descriptor.proto";
+
+//custom field-level option
+extend google.protobuf.FieldOptions {
+  string custom_field_info = 60001;
+}
+
+message Student {
+  string id = 1;
+  string name = 2;
+}
+
+message User {
+  string id = 1 [(custom_field_info) = "Primary User Id"];
+  string name = 2;
+  string email = 3;
+  oneof contact_method {
+    string phone = 4;
+    string email_alias = 5;
+  }
+  enum Status {
+    UNKNOWN = 0;
+    ACTIVE = 1;
+    INACTIVE = 2;
+    DELETED = 3;
+  }
+  Status status = 6;
+  map<string,int32> scores = 7;
+  repeated string tags = 8;
+  message Profile {
+    string bio = 1;
+    repeated string hobbies = 2;
+    Student student = 3;
+  }
+  Profile profile = 9;
+  google.protobuf.Timestamp created_at = 10;
+  google.protobuf.Any extra = 11;
+
+  bool is_deleted = 12 [deprecated = true];
+
+  reserved 13,14;
+  reserved "legacy_field","test_code";
+
+}
+
+message CreateUserRequest {
+  User user = 1;
+}
+
+message GetUser {
+  string id = 1;
+}
+
+message UserResponse {
+  User user = 1;
+}
+
+message UserList {
+  repeated User users = 1;
+}
+
+message StreamMessage {
+  string data = 1;
+  google.protobuf.Timestamp ts = 2;
+}
+
+service UserService {
+  rpc CreateUser (CreateUserRequest) returns (UserResponse);
+  rpc GetUserById (GetUser) returns (UserResponse);
+  // server streaming
+  rpc StreamUsers (google.protobuf.Timestamp) returns (stream User);
+  // client streaming
+  rpc BulkCreateUsers (stream CreateUserRequest) returns (UserList);
+  // bi-directional
+  rpc Chat (stream StreamMessage) returns (stream StreamMessage);
+}
+
+service AdminService {
+  rpc DeleteUser (GetUser) returns (UserResponse);
+}
