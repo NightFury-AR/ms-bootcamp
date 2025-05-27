@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package org.night_fury.proto.gps_locator.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "GPSLocatorProto";
+
+message LocationRequest {
+  int32 vehicleId = 1;
+  string vehicleName = 2;
+}
+
+message LocationResponse {
+  string vehicleName = 1;
+  double latitude = 2;
+  double longitude = 3;
+}

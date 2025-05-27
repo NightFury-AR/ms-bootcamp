@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+package org.night_fury.proto.gps_locator.v1;
+option java_multiple_files = true;
+option java_outer_classname = "GPSLocatorServiceProto";
+
+import "server_stream/gpslocator/v1/gpslocator_payload.proto";
+
+service GPSLocatorService {
+  // Server streaming RPC to get the location of a vehicle
+  rpc GetVehicleLocation(LocationRequest) returns (stream LocationResponse);
+}
+
+// The GetVehicleLocation method takes a LocationRequest and returns a stream of LocationResponse messages.
+// This allows the server to send multiple location updates for a vehicle over time.
+// The client can read from the stream to receive these updates as they become available.
+// This is useful for applications that need real-time location tracking, such as GPS navigation systems or fleet management software.
+// The LocationRequest message contains the vehicle ID and name, while the LocationResponse message contains the vehicle name, latitude, and longitude.
+// The server can send multiple LocationResponse messages for a single LocationRequest, allowing the client to receive continuous updates on the vehicle's location.
+// The stream is closed when the server has no more updates to send, or it can be closed by the client if it no longer needs updates.
+// This pattern is commonly used in applications that require real-time data updates, such as live tracking systems or monitoring applications.
+// The server can implement logic to determine when to send updates, such as based on time intervals or changes in the vehicle's location.
+// The client can handle the stream asynchronously, allowing it to process updates as they arrive without blocking.
+// This approach is efficient for scenarios where the server needs to push updates to the client without requiring the client to repeatedly request new data.
+// The use of server streaming RPCs in gRPC allows for efficient communication between the server and client, especially in scenarios where continuous updates are needed.
+// The GPSLocatorService can be extended with additional methods in the future, such as methods for tracking multiple vehicles or retrieving historical location data.
+// The service can also be integrated with other systems, such as mapping services or alerting systems, to provide a comprehensive solution for vehicle tracking and monitoring.
+// The protobuf definitions ensure that the data structures used for communication are well-defined and can be easily serialized and deserialized.
+// This allows for interoperability between different programming languages and platforms, as gRPC supports multiple languages.
+// The GPSLocatorService can be used in various applications, including logistics, transportation, and emergency response systems, where real-time vehicle tracking is essential.
+// The service can also be secured using gRPC's built-in authentication and authorization mechanisms, ensuring that only authorized clients can access the location data.
+// The use of protobuf for defining the service and messages ensures that the API is versioned and can evolve over time without breaking existing clients.
+// The GPSLocatorService can be deployed in a microservices architecture, allowing it to scale independently and interact with other services in the system.
+// The service can also be monitored and logged to track its performance and usage, providing insights into the system's operation.
+// The protobuf definitions can be compiled into client and server code using the gRPC tools, making it easy to implement the service in various programming languages.
+// The GPSLocatorService can be tested using gRPC testing tools, allowing developers to verify its functionality and performance before deployment.
+// The service can also be documented using tools like Swagger or OpenAPI, providing a clear API specification for developers.
+// The use of server streaming RPCs in gRPC allows for efficient communication between the server and client, especially in scenarios where continuous updates are needed.
+// The GPSLocatorService can be extended with additional methods in the future, such as methods for tracking multiple vehicles or retrieving historical location data.
+// The service can also be integrated with other systems, such as mapping services or alerting systems, to provide a comprehensive solution for vehicle tracking and monitoring.
+// The protobuf definitions ensure that the data structures used for communication are well-defined and can be easily serialized and deserialized.
+// This allows for interoperability between different programming languages and platforms, as gRPC supports multiple languages.
+// The GPSLocatorService can be used in various applications, including logistics, transportation, and emergency response systems, where real-time vehicle tracking is essential.
+// The service can also be secured using gRPC's built-in authentication and authorization mechanisms, ensuring that only authorized clients can access the location data.
+// The use of protobuf for defining the service and messages ensures that the API is versioned and can evolve over time without breaking existing clients.
+// The GPSLocatorService can be deployed in a microservices architecture, allowing it to scale independently and interact with other services in the system.
+// The service can also be monitored and logged to track its performance and usage, providing insights into the system's operation.
+// The protobuf definitions can be compiled into client and server code using the gRPC tools, making it easy to implement the service in various programming languages.
+// The GPSLocatorService can be tested using gRPC testing tools, allowing developers to verify its functionality and performance before deployment.
