@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package org.nightfury.proto.unary.gpsregistration.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "RegisterVehicleProto";
+
+message VehicleRegistrationRequest {
+  string vehicleId = 1;
+  string vehicleName = 2;
+}
+
+message VehicleRegistrationResponse {
+  string message = 1;
+}

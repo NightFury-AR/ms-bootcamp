@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package org.nightfury.proto.bidirectional_streaming.livelocationtracker.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "LiveLocationTrackerServiceProto";
+
+import "bidirectional_streaming/livelocationtracker/v1/livelocationtracker_payload.proto";
+
+service LiveLocationService {
+  rpc liveTracking(stream LiveLocationInfo) returns ( stream ServerCommand);
+}

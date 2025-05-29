@@ -1,7 +1,8 @@
 package org.nightfury.server_stream.demo;
 
 import io.grpc.stub.StreamObserver;
-import org.night_fury.proto.gps_locator.v1.LocationResponse;
+import org.nightfury.proto.server_stream.gpslocator.v1.LocationResponse;
+
 
 public class GPSLocationObserver implements StreamObserver<LocationResponse> {
 

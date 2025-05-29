@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package org.nightfury.proto.bidirectional_streaming.livelocationtracker.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "LiveLocationTrackerPayloadProto";
+
+message LiveLocationInfo {
+  int32 vehicleId = 1;
+  string vehicleName = 2;
+  string destination = 3;
+  double latitude = 4;
+  double longitude = 5;
+}
+
+message ServerCommand {
+  string status = 1;
+}

@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package org.night_fury.proto.gps_locator.v1;
+package org.nightfury.proto.server_stream.gpslocator.v1;
 option java_multiple_files = true;
 option java_outer_classname = "GPSLocatorServiceProto";
 

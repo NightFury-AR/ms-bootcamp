@@ -2,8 +2,8 @@ package org.nightfury.server_stream.demo;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
-import org.night_fury.proto.gps_locator.v1.GPSLocatorServiceGrpc;
-import org.night_fury.proto.gps_locator.v1.LocationRequest;
+import org.nightfury.proto.server_stream.gpslocator.v1.GPSLocatorServiceGrpc;
+import org.nightfury.proto.server_stream.gpslocator.v1.LocationRequest;
 
 public class GPSLocatorGRPCClient {
     public static void main(String[] args) {

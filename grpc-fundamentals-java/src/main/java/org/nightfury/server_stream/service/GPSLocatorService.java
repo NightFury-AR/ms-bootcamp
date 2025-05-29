@@ -2,9 +2,10 @@ package org.nightfury.server_stream.service;
 
 
 import io.grpc.stub.StreamObserver;
-import org.night_fury.proto.gps_locator.v1.GPSLocatorServiceGrpc;
-import org.night_fury.proto.gps_locator.v1.LocationRequest;
-import org.night_fury.proto.gps_locator.v1.LocationResponse;
+import org.nightfury.proto.server_stream.gpslocator.v1.GPSLocatorServiceGrpc;
+import org.nightfury.proto.server_stream.gpslocator.v1.LocationRequest;
+import org.nightfury.proto.server_stream.gpslocator.v1.LocationResponse;
+
 
 public class GPSLocatorService extends GPSLocatorServiceGrpc.GPSLocatorServiceImplBase {
     @Override
