@@ -1,0 +1,22 @@
+syntax = "proto3";
+package org.nightfury.proto.common.helloworld.v1;
+
+option java_package = "org.nightfury.proto.common.helloworld.v1";
+option java_multiple_files = true;
+option java_outer_classname = "HelloWorldServiceProto";
+
+import "common/helloworld/v1/HelloWorld_payload.proto";
+
+service HelloWorldService {
+  // Unary RPC to greet the user
+  rpc SayHello(org.nightfury.proto.common.helloworld.v1.HelloWorldRequest) returns (org.nightfury.proto.common.helloworld.v1.HelloWorldResponse);
+
+  // Server streaming RPC to greet the user multiple times
+  // rpc SayHelloStream(org.nightfury.proto.common.helloworld.v1.HelloWorldRequest) returns (stream org.nightfury.proto.common.helloworld.v1.HelloWorldResponse);
+
+  // Client streaming RPC to send greetings from the user
+  // rpc SendGreetings(stream org.nightfury.proto.common.helloworld.v1.HelloWorldRequest) returns (org.nightfury.proto.common.helloworld.v1.HelloWorldResponse);
+
+  // Bidirectional streaming RPC to exchange greetings
+  // rpc ExchangeGreetings(stream org.nightfury.proto.common.helloworld.v1.HelloWorldRequest) returns (stream org.nightfury.proto.common.helloworld.v1.HelloWorldResponse);
+}

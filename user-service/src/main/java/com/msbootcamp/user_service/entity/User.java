@@ -23,6 +23,4 @@ public class User extends Auditable {
     private String email;
     private String city;
     private String status;
-    private String createdAt;
-    private String updatedAt;
 }

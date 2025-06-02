@@ -1,2 +1,14 @@
 .idea
 *.iml
+grpc-fundamentals-java/target
+grpc-fundamentals-java/.mvn
+
+user-service/.mvn
+user-service/mvnw
+user-service/mvnw.cmd
+user-service/target
+
+/springboot-grpc-demo/target
+/springboot-grpc-demo/mvnw
+/springboot-grpc-demo/mvnw.cmd
+/springboot-grpc-demo/.mvn

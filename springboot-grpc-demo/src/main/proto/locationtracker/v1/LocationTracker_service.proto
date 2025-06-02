@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package io.github.nightfuryar.springbootgrpcdemo.proto.locationtracker.v1;
+
+option java_multiple_files = true;
+option java_package = "io.github.nightfuryar.springbootgrpcdemo.locationtracker.v1";
+option java_outer_classname = "LocationTrackerServiceProto";
+
+import "locationtracker/v1/LocationTracker_payload.proto";
+
+service LocationTrackerService {
+  // unary - registerVehicle
+  rpc RegisterVehicle(VehicleRegistrationRequest) returns (VehicleRegistrationResponse);
+  // Server Streaming
+  rpc GetVehicleLocationHistory(VehicleLocationHistoryRequest) returns (stream VehicleLocation);
+  // Client Streaming
+  rpc UploadVehicleLocations(stream VehicleLocation) returns (LocationUploadStatus);
+  // Bi-directional Streaming
+  rpc TrackVehicleLocations(stream VehicleLocation) returns (stream LocationAcknowledgement);
+}

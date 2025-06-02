@@ -13,8 +13,8 @@ public class UserMapper {
                 user.getEmail(),
                 user.getCity(),
                 user.getStatus(),
-                user.getCreatedAt(),
-                user.getUpdatedAt()
+                user.getCreatedAt().toString(),
+                user.getUpdatedAt().toString()
         );
     }
 
@@ -24,9 +24,7 @@ public class UserMapper {
                 userDTO.getUsername(),
                 userDTO.getEmail(),
                 userDTO.getCity(),
-                userDTO.getStatus(),
-                userDTO.getCreatedAt(),
-                userDTO.getUpdatedAt()
+                userDTO.getStatus()
         );
     }
 
