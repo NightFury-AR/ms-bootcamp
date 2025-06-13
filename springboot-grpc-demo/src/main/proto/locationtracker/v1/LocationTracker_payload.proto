@@ -7,25 +7,28 @@ option java_package = "io.github.nightfuryar.springbootgrpcdemo.locationtracker.
 option java_outer_classname = "LocationTrackerPayloadProto";
 
 message VehicleRegistrationRequest {
-  string vehicle_id = 1;
-  string vehicle_type = 2;
-  string owner_name = 3;
+  double vehicle_id = 1; // unique identifier for the vehicle
+  string vehicle_number = 2; // here vehicle id is vehicle number
+  string vehicle_type = 3;
+  string owner_name = 4;
 }
 
 message VehicleRegistrationResponse {
-  string vehicle_id = 1;
-  string status = 2; // e.g., "registered", "already_exists"
+  double vehicle_id = 1;
+  string vehicle_number = 2;
+  string status = 3; // e.g., "registered", "already_exists"
 }
 
 message VehicleLocation {
-  string vehicle_id = 1;
-  double latitude = 2;
-  double longitude = 3;
-  int64 timestamp = 4;
+  double vehicle_id = 1; // unique identifier for the vehicle
+  string vehicle_number = 2;
+  double latitude = 3;
+  double longitude = 4;
+  int64 timestamp = 5;
 }
 
 message VehicleLocationHistoryRequest {
-  string vehicle_id = 1;
+  string vehicle_number = 1;
 }
 
 message LocationUploadStatus {

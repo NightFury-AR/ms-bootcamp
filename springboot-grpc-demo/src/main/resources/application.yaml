@@ -10,6 +10,22 @@ spring:
         location-tracker:
             address: 'static://localhost:9090'
             negotiation-type: plaintext
+  datasource:
+    url: jdbc:h2:mem:vehicledb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update   # creates tables automatically, use 'create' if you want fresh every start
+      show-sql: true       # optional, show generated SQL queries in logs
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+
 
 server:
   port: 8080
