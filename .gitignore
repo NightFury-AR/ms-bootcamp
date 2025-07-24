@@ -12,3 +12,8 @@ user-service/target
 /springboot-grpc-demo/mvnw
 /springboot-grpc-demo/mvnw.cmd
 /springboot-grpc-demo/.mvn
+
+/spring-web-security-demo/target
+/spring-web-security-demo/mvnw
+/spring-web-security-demo/mvnw.cmd
+/spring-web-security-demo/.mvn
